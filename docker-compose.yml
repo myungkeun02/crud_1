@@ -1,0 +1,23 @@
+version: "3"
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: myungkeun
+      POSTGRES_PASSWORD: password
+      POSTGERS_DB: myungkeun_db
+  myungkeun_db:
+    image: mysql:8.0
+    container_name: myungkeun_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      TZ: Asia/Seoul
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql-init-files/:/docker-entrypoint-initdb.d
+    platform: linux/x86_64
