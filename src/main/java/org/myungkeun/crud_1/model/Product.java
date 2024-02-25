@@ -23,6 +23,6 @@ public class Product {
     @Column(name = "price")
     private int price;
 
-    @Column(name = "category_id")
-    private int category;
+    @Column(name = "category")
+    private String category;
 }
